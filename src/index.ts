@@ -7,6 +7,7 @@
  */
 export interface Env {
   NAMESPACE_NAME: KVNamespace;
+  ENV_VAR_NAME: string;
 }
 
 export default {
@@ -39,9 +40,7 @@ export default {
  * @returns The response outcome to the request.
  */
 async function handleFetch({ request, env, ctx }: FetchPayload): Promise<Response> {
-  const config = {
-    exampleVar: env.VARIABLE_NAME,
-  };
+  const envVar = env.ENV_VAR_NAME;
   return new Response('Response from worker');
 }
 
